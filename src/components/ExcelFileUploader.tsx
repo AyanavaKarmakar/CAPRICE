@@ -1,6 +1,9 @@
 import { useState } from "react";
-import { useDropzone } from "react-dropzone";
-import type { FileRejection, DropEvent } from "react-dropzone";
+import {
+  useDropzone,
+  type FileRejection,
+  type DropEvent,
+} from "react-dropzone";
 
 export function ExcelFileUploader() {
   const [file, setFile] = useState<File>();
