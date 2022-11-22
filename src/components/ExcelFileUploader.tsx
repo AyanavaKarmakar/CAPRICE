@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useDropzone } from "react-dropzone";
+import type { FileRejection, DropEvent } from "react-dropzone";
 
 export function ExcelFileUploader() {
   const [file, setFile] = useState<File>();
@@ -11,11 +12,23 @@ export function ExcelFileUploader() {
         ".xlsx",
       ],
     },
-    onDrop: (acceptedFiles: File[]) => {
+    onDrop: (
+      acceptedFiles: File[],
+      filesRejections: FileRejection[],
+      event: DropEvent
+    ) => {
       if (acceptedFiles.length > 0) {
         setFile(acceptedFiles[0]);
-        // parseXLSX(acceptedFiles[0]);
+
+        // TODO parseXLSX(acceptedFiles[0])
       }
+
+      if (filesRejections.length > 0) {
+        // TODO show error alert
+        alert("Please upload a valid excel file");
+      }
+
+      event && event.preventDefault();
     },
   });
 
