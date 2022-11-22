@@ -24,6 +24,7 @@
     "react-dom": "18.2.0",
     "react-dropzone": "^14.2.3",
     "superjson": "1.9.1",
+    "xlsx": "^0.18.5",
     "zod": "^3.18.0"
   },
   "devDependencies": {
