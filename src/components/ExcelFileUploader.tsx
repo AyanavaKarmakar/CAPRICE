@@ -5,10 +5,15 @@ import {
   type DropEvent,
 } from "react-dropzone";
 import { read, utils } from "xlsx";
+import { SheetDataJSONStore } from "../utils/store.mjs";
 
 export function ExcelFileUploader() {
   const [file, setFile] = useState<File>();
   const [loadingText, setLoadingText] = useState<string>();
+
+  const setSheetDataJSON = SheetDataJSONStore(
+    (state) => state.setSheetDataJSON
+  );
 
   /**
    * ! FIX ME: send help
@@ -25,7 +30,7 @@ export function ExcelFileUploader() {
         const worksheet = workbook.Sheets[sheetName];
         const json = utils.sheet_to_json(worksheet);
         // TODO - do something with the json
-        console.log(json);
+        setSheetDataJSON(json);
         setLoadingText("Done!");
       };
       reader.readAsArrayBuffer(event.target.files[0]);
