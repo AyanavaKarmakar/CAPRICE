@@ -37,8 +37,7 @@ export function ExcelFileUploader() {
       <div {...getRootProps({ className: "dropzone" })}>
         <input {...getInputProps()} />
         <p>
-          Drag &apos;n&apos; drop some Excel files here, or click to select
-          files!
+          Drag &apos;n&apos; drop a Excel file here, or click to select files!
         </p>
         <button onClick={open}>Open File Dialog</button>
       </div>
