@@ -9,7 +9,9 @@ const Home: NextPage = () => {
         <title>CAPRICE</title>
         <meta property="og:title" content="CAPRICE" key="title_0" />
       </Head>
-      <ExcelFileUploader />
+      <div className="h-screen bg-gradient-to-r from-slate-900/10 via-cyan-900/40 to-zinc-900/10">
+        <ExcelFileUploader />
+      </div>
     </>
   );
 };

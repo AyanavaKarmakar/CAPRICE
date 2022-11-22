@@ -33,7 +33,7 @@ export function ExcelFileUploader() {
   });
 
   return (
-    <section className="flex h-screen items-center justify-center">
+    <section className="flex h-screen items-center justify-center text-2xl">
       <div {...getRootProps({ className: "dropzone" })}>
         <input {...getInputProps()} />
         <p>

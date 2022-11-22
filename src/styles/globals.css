@@ -1,3 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Familjen+Grotesk&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    html {
+        color: #d6d3d1;
+        background-color: #1c1917;
+        font-family: Familjen Grotesk, sans-serif;
+        -webkit-font-smoothing: auto;
+        -moz-osx-font-smoothing: auto;
+        scroll-behavior: smooth;
+    }
+}
