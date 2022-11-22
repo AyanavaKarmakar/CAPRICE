@@ -4,11 +4,33 @@ import {
   type FileRejection,
   type DropEvent,
 } from "react-dropzone";
+import { read, utils } from "xlsx";
 
 export function ExcelFileUploader() {
   const [file, setFile] = useState<File>();
 
-  const { getRootProps, getInputProps, open } = useDropzone({
+  /**
+   * ! FIX ME: send help
+   * @param event
+   */
+  function parseXLSX(event: DropEvent) {
+    event.preventDefault();
+    if (event.target.files) {
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        const data = event.target.result;
+        const workbook = read(data, { type: "array" });
+        const sheetName = workbook.SheetNames[0];
+        const worksheet = workbook.Sheets[sheetName];
+        const json = utils.sheet_to_json(worksheet);
+        // TODO - do something with the json
+        console.log(json);
+      };
+      reader.readAsArrayBuffer(event.target.files[0]);
+    }
+  }
+
+  const { getInputProps, open } = useDropzone({
     noClick: true,
     accept: {
       "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": [
@@ -20,10 +42,9 @@ export function ExcelFileUploader() {
       filesRejections: FileRejection[],
       event: DropEvent
     ) => {
-      if (acceptedFiles.length > 0) {
+      if (acceptedFiles.length > 0 && acceptedFiles[0] !== undefined) {
         setFile(acceptedFiles[0]);
-
-        // TODO parseXLSX(acceptedFiles[0])
+        parseXLSX(event);
       }
 
       if (filesRejections.length > 0) {
@@ -37,19 +58,16 @@ export function ExcelFileUploader() {
 
   return (
     <div className="flex h-screen items-center justify-center pl-5 pr-5 text-xl leading-6 lg:text-2xl">
-      <div
-        {...getRootProps({ className: "dropzone" })}
-        className="rounded-3xl border-2 border-solid border-sky-300/60 p-5 text-center lg:p-10"
-      >
+      <div className="rounded-3xl border-2 border-solid border-sky-300/60 bg-gradient-to-r from-slate-900/10 via-blue-900/20 to-zinc-900/10 p-5 text-center lg:p-10">
         <input {...getInputProps()} />
         <h1 className="text-2xl font-semibold tracking-wide text-cyan-100/90 lg:text-4xl">
-          Drag &apos;n&apos; drop a Excel file!
+          CAPRICE
         </h1>
         <button
           className="text-xl hover:text-teal-200/90 lg:text-2xl"
           onClick={open}
         >
-          Or, click on me to upload :&#41;
+          Click on me to upload :&#41;
         </button>
         <div>
           <h1>
