@@ -33,18 +33,28 @@ export function ExcelFileUploader() {
   });
 
   return (
-    <section className="flex h-screen items-center justify-center text-2xl">
-      <div {...getRootProps({ className: "dropzone" })}>
+    <div className="flex h-screen items-center justify-center pl-5 pr-5 text-xl leading-6 lg:text-2xl">
+      <div
+        {...getRootProps({ className: "dropzone" })}
+        className="rounded-3xl border-2 border-solid border-sky-300/60 p-5 text-center lg:p-10"
+      >
         <input {...getInputProps()} />
-        <p>
-          Drag &apos;n&apos; drop a Excel file here, or click to select files!
-        </p>
-        <button onClick={open}>Open File Dialog</button>
+        <h1 className="text-2xl font-semibold tracking-wide text-cyan-100/90 lg:text-4xl">
+          Drag &apos;n&apos; drop a Excel file!
+        </h1>
+        <button
+          className="text-xl hover:text-teal-200/90 lg:text-2xl"
+          onClick={open}
+        >
+          Or, click on me to upload :&#41;
+        </button>
+        <div>
+          <h1>
+            File uploaded:
+            {file !== undefined ? <> {file.name}</> : <> None</>}
+          </h1>
+        </div>
       </div>
-      <aside>
-        <h4>Files</h4>
-        {file !== undefined ? <ul>{file.name}</ul> : <ul>None</ul>}
-      </aside>
-    </section>
+    </div>
   );
 }
