@@ -1,14 +1,12 @@
 # CAPRICE — Data Visualization for Excel Sheets!
 
-> WIP
-
-<br />
+## WIP
 
 ### TODO —
 
 1. Milestone 1
 
-- [ ] Add file dropzone with xlsx filter
+- [X] Add file dropzone with xlsx filter
 - [ ] Parse .xlsx files
 - [ ] Visualize
 
