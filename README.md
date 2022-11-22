@@ -6,7 +6,7 @@
 
 1. Milestone 1
 
-- [x] Add file dropzone with xlsx filter
+- [x] Add file ~~dropzone~~ with xlsx filter
 - [ ] Parse .xlsx files
 - [ ] Visualize
 
