@@ -8,6 +8,7 @@ import { read, utils } from "xlsx";
 
 export function ExcelFileUploader() {
   const [file, setFile] = useState<File>();
+  const [loadingText, setLoadingText] = useState<string>();
 
   /**
    * ! FIX ME: send help
@@ -25,6 +26,7 @@ export function ExcelFileUploader() {
         const json = utils.sheet_to_json(worksheet);
         // TODO - do something with the json
         console.log(json);
+        setLoadingText("Done!");
       };
       reader.readAsArrayBuffer(event.target.files[0]);
     }
@@ -44,6 +46,7 @@ export function ExcelFileUploader() {
     ) => {
       if (acceptedFiles.length > 0 && acceptedFiles[0] !== undefined) {
         setFile(acceptedFiles[0]);
+        setLoadingText("Processing your file...");
         parseXLSX(event);
       }
 
@@ -74,6 +77,7 @@ export function ExcelFileUploader() {
             File uploaded:
             {file !== undefined ? <> {file.name}</> : <> None</>}
           </h1>
+          <h1>{loadingText}</h1>
         </div>
       </div>
     </div>
