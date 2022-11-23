@@ -92,7 +92,7 @@ export const SheetVisualization = () => {
                     : setChartType("bar")
                 }
               >
-                Show {chartType} Chart
+                Show {chartType === "bar" ? "pie" : "bar"} Chart
               </button>
             </div>
           </div>
