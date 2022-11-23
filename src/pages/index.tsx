@@ -1,13 +1,8 @@
 import { type NextPage } from "next";
 import Head from "next/head";
 import { ExcelFileUploader } from "../components";
-import { SheetDataJSONStore } from "../utils/store.mjs";
 
 const Home: NextPage = () => {
-  const sheetDataJSON = SheetDataJSONStore((state) => state.sheetDataJSON);
-
-  console.log(sheetDataJSON);
-
   return (
     <>
       <Head>
