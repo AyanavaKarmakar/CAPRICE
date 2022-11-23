@@ -4,14 +4,20 @@ import ReactEcharts from "echarts-for-react";
 
 export const SheetVisualization = () => {
   const [fields, setFields] = useState<string[]>();
+  const [data, setData] = useState<number[] | string[]>();
+  const [chartType, setChartType] = useState<string>("bar");
   const sheetDataJSON = SheetDataJSONStore((state) => state.sheetDataJSON);
 
   // TODO Remove later
   console.log(sheetDataJSON);
   useEffect(() => {
     if (sheetDataJSON[0] !== null && sheetDataJSON[0] !== undefined) {
-      console.log(Object.keys(sheetDataJSON[0]));
+      // console.log(Object.keys(sheetDataJSON[0]));
       setFields(Object.keys(sheetDataJSON[0]));
+
+      const ages = sheetDataJSON.map((row: { Age: number }) => row.Age);
+      console.log(ages);
+      setData(ages);
     }
   }, [sheetDataJSON]);
 
@@ -19,7 +25,7 @@ export const SheetVisualization = () => {
   // dummy data
   // TODO Move to a separate file
   const chartOption = {
-    title: { text: "Column 1 v/s Column  || Dummy Placeholder Chart" },
+    title: { text: "Column 1 v/s Column || Dummy Placeholder Chart" },
     xAxis: {
       name: "Field Name 1",
       type: "category",
@@ -27,8 +33,8 @@ export const SheetVisualization = () => {
     yAxis: { name: "Field Name 2" },
     series: [
       {
-        data: [10, 20, 30],
-        type: "bar",
+        data: data,
+        type: chartType,
         showBackground: true,
         backgroundStyle: {
           color: "#ffffff",
@@ -77,9 +83,19 @@ export const SheetVisualization = () => {
               </h1>
             </div>
           </div>
-          <div className="items-center justify-center pl-5 pr-5">
+          <div className="mt-12 items-center justify-center pl-5 pr-5 lg:mt-5">
             <div className="rounded-3xl border-4 border-solid border-sky-300/60 bg-gradient-to-r from-slate-900/10 via-blue-900/20 to-zinc-900/10 p-5 text-center lg:p-10">
               <ReactEcharts option={chartOption} style={chartStyles} />
+              <button
+                className="rounded-2xl border-2 border-sky-200 bg-gradient-to-r from-slate-900/10 via-blue-900/60 to-zinc-900/10 p-3 text-2xl capitalize text-sky-200 hover:underline hover:decoration-dotted hover:underline-offset-4"
+                onClick={() =>
+                  chartType === "bar"
+                    ? setChartType("pie")
+                    : setChartType("bar")
+                }
+              >
+                Show {chartType} Chart
+              </button>
             </div>
           </div>
         </>
