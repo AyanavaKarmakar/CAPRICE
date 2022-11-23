@@ -31,7 +31,7 @@ export function ExcelFileUploader() {
             if (worksheet) {
               const json = utils.sheet_to_json(worksheet);
               setSheetDataJSON(json);
-              setLoadingText("Done!");
+              setLoadingText("Done! Scroll down.");
             }
           }
         }
