@@ -64,7 +64,7 @@ export const SheetVisualization = () => {
               <ul>
                 {fields?.map((field) => (
                   <li
-                    className="my-5 rounded-3xl border border-solid border-cyan-50 p-2 pl-5 text-left"
+                    className="my-5 rounded-3xl border border-solid border-cyan-50 bg-gradient-to-r from-indigo-900/10 via-indigo-900/25 to-indigo-900/10 p-2 pl-5 text-left"
                     key={field.length}
                   >
                     {`— ${field}`}
@@ -85,7 +85,7 @@ export const SheetVisualization = () => {
             <div className="rounded-3xl border-4 border-solid border-sky-300/60 bg-gradient-to-r from-slate-900/10 via-blue-900/20 to-zinc-900/10 p-5 text-center lg:p-10">
               <ReactEcharts option={chartOption} style={chartStyles} />
               <button
-                className="rounded-2xl border-2 border-sky-200 bg-gradient-to-r from-slate-900/10 via-blue-900/60 to-zinc-900/10 p-3 text-2xl capitalize text-sky-200 hover:underline hover:decoration-dotted hover:underline-offset-4"
+                className="rounded-2xl border-2 border-sky-200 bg-gradient-to-r from-indigo-900/75 via-indigo-700/30 to-indigo-900/75 p-3 text-2xl capitalize text-sky-200 hover:via-sky-900 hover:underline hover:decoration-dotted hover:underline-offset-4"
                 onClick={() =>
                   chartType === "bar"
                     ? setChartType("pie")
