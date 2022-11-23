@@ -12,11 +12,12 @@ export const SheetVisualization = () => {
   console.log(sheetDataJSON);
   useEffect(() => {
     if (sheetDataJSON[0] !== null && sheetDataJSON[0] !== undefined) {
-      // console.log(Object.keys(sheetDataJSON[0]));
       setFields(Object.keys(sheetDataJSON[0]));
-
+      // TODO Remove later
       const ages = sheetDataJSON.map((row: { Age: number }) => row.Age);
+      // TODO Remove later
       console.log(ages);
+      // ? Sets dummy data
       setData(ages);
     }
   }, [sheetDataJSON]);
