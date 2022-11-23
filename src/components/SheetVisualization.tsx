@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { SheetDataJSONStore } from "../utils/store.mjs";
 import ReactEcharts from "echarts-for-react";
+import { SheetDataJSONStore } from "../utils/store.mjs";
 
 export const SheetVisualization = () => {
   const [fields, setFields] = useState<string[]>();
