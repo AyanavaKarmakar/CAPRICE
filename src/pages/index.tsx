@@ -12,6 +12,17 @@ const Home: NextPage = () => {
       <div className="bg-gradient-to-r from-slate-900/10 via-cyan-900/40 to-zinc-900/10">
         <ExcelFileUploader />
         <SheetVisualization />
+        <footer className="p-5 text-center text-xl tracking-wider">
+          &copy; {new Date().getFullYear()}{" "}
+          <a
+            href="https://github.com/AyanavaKarmakar"
+            target="_blank"
+            rel="noreferrer"
+            className="capitalize text-cyan-100 hover:underline"
+          >
+            Ayanava Karmakar
+          </a>
+        </footer>
       </div>
     </>
   );
