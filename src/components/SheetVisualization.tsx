@@ -25,12 +25,10 @@ export const SheetVisualization = () => {
   // dummy data
   // TODO Move to a separate file
   const chartOption = {
-    title: { text: "Column 1 v/s Column || Dummy Placeholder Chart" },
     xAxis: {
-      name: "Field Name 1",
       type: "category",
     },
-    yAxis: { name: "Field Name 2" },
+    yAxis: {},
     series: [
       {
         data: data,
