@@ -72,7 +72,7 @@ export function ExcelFileUploader() {
           CAPRICE
         </h1>
         <button
-          className="text-xl hover:text-teal-200/90 lg:text-2xl"
+          className="text-xl hover:text-teal-200/90 motion-safe:animate-pulse hover:motion-reduce:animate-pulse lg:text-2xl"
           onClick={open}
         >
           Click on me to upload :&#41;
