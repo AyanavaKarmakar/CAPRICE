@@ -15,22 +15,26 @@ export function ExcelFileUploader() {
     (state) => state.setSheetDataJSON
   );
 
-  /**
-   * ! FIX ME: send help
-   * @param event
-   */
-  function parseXLSX(event: DropEvent) {
+  // ! FIX ME: send help
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  function parseXLSX(event: any) {
     event.preventDefault();
     if (event.target.files) {
       const reader = new FileReader();
       reader.onload = (event) => {
-        const data = event.target.result;
-        const workbook = read(data, { type: "array" });
-        const sheetName = workbook.SheetNames[0];
-        const worksheet = workbook.Sheets[sheetName];
-        const json = utils.sheet_to_json(worksheet);
-        setSheetDataJSON(json);
-        setLoadingText("Done!");
+        if (event.target) {
+          const data = event.target.result;
+          const workbook = read(data, { type: "array" });
+          const sheetName = workbook.SheetNames[0];
+          if (sheetName) {
+            const worksheet = workbook.Sheets[sheetName];
+            if (worksheet) {
+              const json = utils.sheet_to_json(worksheet);
+              setSheetDataJSON(json);
+              setLoadingText("Done!");
+            }
+          }
+        }
       };
       reader.readAsArrayBuffer(event.target.files[0]);
     }
