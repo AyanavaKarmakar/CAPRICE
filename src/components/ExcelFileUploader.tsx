@@ -29,7 +29,6 @@ export function ExcelFileUploader() {
         const sheetName = workbook.SheetNames[0];
         const worksheet = workbook.Sheets[sheetName];
         const json = utils.sheet_to_json(worksheet);
-        // TODO - do something with the json
         setSheetDataJSON(json);
         setLoadingText("Done!");
       };
