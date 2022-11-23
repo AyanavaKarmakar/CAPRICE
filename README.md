@@ -1,6 +1,6 @@
 # CAPRICE — Data Visualization for Excel Sheets!
 
-## WIP
+## WIP (Use this [dummy data](https://docs.google.com/spreadsheets/d/1xuDiPiVSpgrtavka2LzQ91JV8zklWfUV/edit#gid=300364610) to test)
 
 ### TODO —
 
