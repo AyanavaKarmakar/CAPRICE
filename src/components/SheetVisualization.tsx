@@ -65,7 +65,7 @@ export const SheetVisualization = () => {
               <ul>
                 {fields?.map((field) => (
                   <li
-                    className="my-5 rounded-3xl border border-solid border-cyan-50 bg-gradient-to-r from-indigo-900/10 via-indigo-900/25 to-indigo-900/10 p-2 pl-5 text-left"
+                    className="my-5 rounded-xl border-2 border-solid border-cyan-50 bg-gradient-to-r from-indigo-900/10 via-indigo-900/25 to-indigo-900/10 p-2 pl-5 text-left"
                     key={field.length}
                   >
                     {`— ${field}`}
