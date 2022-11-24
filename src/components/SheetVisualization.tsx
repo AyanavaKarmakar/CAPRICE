@@ -5,7 +5,7 @@ import { SheetDataJSONStore } from "../utils/store.mjs";
 export const SheetVisualization = () => {
   const [fields, setFields] = useState<string[]>();
   const [data, setData] = useState<number[] | string[]>();
-  const [chartType, setChartType] = useState<string>("bar");
+  const [chartType, setChartType] = useState("bar");
   const sheetDataJSON = SheetDataJSONStore((state) => state.sheetDataJSON);
 
   // TODO Remove later
