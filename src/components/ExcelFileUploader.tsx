@@ -78,7 +78,8 @@ export function ExcelFileUploader() {
           className="text-xl hover:text-teal-200/90 motion-safe:animate-pulse hover:motion-reduce:animate-pulse lg:text-2xl"
           onClick={open}
         >
-          Click on me to upload :&#41;
+          {`Click on me to ${file !== undefined ? `re-upload` : `upload`} `}
+          :&#41;
         </button>
         <div>
           <h1>
