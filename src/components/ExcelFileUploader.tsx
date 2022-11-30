@@ -71,7 +71,7 @@ export function ExcelFileUploader() {
     <div className="flex h-screen items-center justify-center pl-5 pr-5 text-xl leading-6 lg:text-2xl">
       <div className="rounded-3xl border-4 border-solid border-sky-300/60 bg-gradient-to-r from-slate-900/10 via-blue-900/20 to-zinc-900/10 p-5 text-center lg:p-10">
         <input {...getInputProps()} />
-        <h1 className="text-2xl font-semibold tracking-wide text-cyan-100/90 lg:text-4xl">
+        <h1 className="text-2xl font-semibold uppercase tracking-wider text-cyan-100/95 lg:text-4xl">
           CAPRICE
         </h1>
         <button
