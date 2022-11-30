@@ -58,10 +58,10 @@ export function ExcelFileUploader() {
         parseXLSX(event);
       }
 
-      if (filesRejections.length > 0) {
-        // TODO show error alert
-        alert("Please upload a valid excel file");
-      }
+      // if (filesRejections.length > 0) {
+      //   // TODO show error alert
+      //   alert("Please upload a valid excel file");
+      // }
 
       event && event.preventDefault();
     },
